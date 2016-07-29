@@ -48,6 +48,7 @@ public class ReverseProxyAuthUsersProvider extends ExternalUsersProvider {
             userDetails.setEmail(headerValue);
             userDetails.setName(headerValue);
         }
+
         return userDetails;
     }
 }

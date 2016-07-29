@@ -1,13 +1,12 @@
 package net.trajano.sonar.plugins.reverseproxyauth;
 
 import java.util.List;
+import java.util.ArrayList;
 
 import org.sonar.api.Extension;
 import org.sonar.api.ExtensionProvider;
 import org.sonar.api.ServerExtension;
 import org.sonar.api.config.Settings;
-
-import com.google.common.collect.Lists;
 
 /**
  * Extensions used by the plugin. This is dynamically determined.
@@ -40,9 +39,8 @@ public final class Extensions extends ExtensionProvider implements
      * @return list of extensions that the plugin provides.
      */
     @Override
-    public List<Class<? extends Extension>> provide() {
-        final List<Class<? extends Extension>> extensions = Lists
-                .newArrayList();
+    public List<Class> provide() {
+        final List<Class> extensions = new ArrayList();
         if (ReverseProxyAuthPlugin.KEY.equalsIgnoreCase(settings
                 .getString("sonar.security.realm"))) {
             extensions.add(ReverseProxyAuthRealm.class);

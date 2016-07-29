@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
@@ -8,7 +9,7 @@
     </parent>
     <groupId>net.trajano.sonar.plugins</groupId>
     <artifactId>reverse-proxy-auth-sonar-plugin</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>1.0</version>
     <packaging>sonar-plugin</packaging>
     <name>Reverse Proxy Authenticator</name>
     <description>Reverse Proxy Authenticator plugin for Sonar.</description>
@@ -42,9 +43,9 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>org.codehaus.sonar</groupId>
+            <groupId>org.sonarsource.sonarqube</groupId>
             <artifactId>sonar-plugin-api</artifactId>
-            <version>4.3</version>
+            <version>5.2</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -226,9 +227,9 @@
                 <extensions>true</extensions>
             </plugin>
             <plugin>
-                <groupId>org.codehaus.sonar</groupId>
+                <groupId>org.sonarsource.sonar-packaging-maven-plugin</groupId>
                 <artifactId>sonar-packaging-maven-plugin</artifactId>
-                <version>1.12.1</version>
+                <version>1.16</version>
                 <extensions>true</extensions>
                 <configuration>
                     <pluginKey>reverseproxyauth</pluginKey>

@@ -3,6 +3,7 @@ package net.trajano.sonar.plugins.reverseproxyauth;
 import org.sonar.api.config.Settings;
 import org.sonar.api.security.Authenticator;
 import org.sonar.api.security.ExternalUsersProvider;
+import org.sonar.api.security.ExternalGroupsProvider;
 import org.sonar.api.security.SecurityRealm;
 
 /**
@@ -13,6 +14,11 @@ public class ReverseProxyAuthRealm extends SecurityRealm {
      * Authenticator. Constructed on {@link #init()}.
      */
     private Authenticator authenticator;
+
+    /**
+     * Groups provider. Constructed on {@link #init()}.
+     */
+    private ExternalGroupsProvider groupsProvider;
 
     /**
      * Settings injected.
@@ -60,6 +66,14 @@ public class ReverseProxyAuthRealm extends SecurityRealm {
     }
 
     /**
+     * {@inheritDoc}
+     */
+    @Override
+    public ExternalGroupsProvider getGroupsProvider() {
+        return groupsProvider;
+    }
+
+    /**
      * Instantiates for the {@link Authenticator} and the
      * {@link ExternalUsersProvider}.
      */
@@ -67,5 +81,6 @@ public class ReverseProxyAuthRealm extends SecurityRealm {
     public void init() {
         authenticator = new ReverseProxyAuthenticator(settings);
         usersProvider = new ReverseProxyAuthUsersProvider(settings);
+        groupsProvider = new ReverseProxyAuthGroupsProvider(settings);
     }
 }

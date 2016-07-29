@@ -27,7 +27,7 @@ public class PluginTest {
         settings.appendProperty("sonar.security.realm",
                 ReverseProxyAuthPlugin.KEY);
 
-        final List<Class<? extends Extension>> list = new Extensions(settings)
+        final List<Class> list = new Extensions(settings)
                 .provide();
         Assert.assertTrue(list.contains(ReverseProxyAuthRealm.class));
         Assert.assertTrue(list.contains(ValidateRedirectionFilter.class));

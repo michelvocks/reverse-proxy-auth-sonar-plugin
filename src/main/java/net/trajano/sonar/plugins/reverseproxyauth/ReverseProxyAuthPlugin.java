@@ -12,7 +12,9 @@ import org.sonar.api.SonarPlugin;
  */
 @Properties({
         @Property(key = "reverseproxyauth.header.name", name = "Header Name", defaultValue = "X-Forwarded-User"),
-        @Property(key = "reverseproxyauth.localhost", name = "Hostname to allow Sonar executions", defaultValue = "localhost") })
+        @Property(key = "reverseproxyauth.localhost", name = "Hostname to allow Sonar executions", defaultValue = "localhost"),
+        @Property(key = "reverseproxyauth.header.groups", name = "Header Groups", defaultValue = "X-Forwarded-Groups"),
+        @Property(key = "reverseproxyauth.delimiter", name = "Header Groups Delimiter", defaultValue = "\\|") })
 public class ReverseProxyAuthPlugin extends SonarPlugin {
     /**
      * Plugin key.
